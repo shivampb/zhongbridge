@@ -7,44 +7,43 @@ import {
   Search,
   CheckCircle2,
   Truck,
-  ArrowRight,
 } from 'lucide-react';
 
 const steps = [
   {
     icon: LayoutGrid,
     title: 'Choose Your Virtual Office',
-    desc: 'Select the office/service plan that fits your sourcing requirements.',
+    desc: "Pick the plan that matches how you source — from a single inspection to a full-time office presence. Every plan gives you a real Zhongshan address and a dedicated team ready to act as your eyes on the ground.",
   },
   {
     icon: Send,
     title: 'Send Your Orders to Your China Office',
-    desc: 'Your products are delivered to your assigned virtual office in Zhongshan.',
+    desc: 'Have suppliers ship directly to your virtual office. We receive, log, and photograph every parcel the moment it arrives, so nothing sits unaccounted for and you always know what landed and when.',
   },
   {
     icon: CalendarCheck,
     title: 'Book a Live Inspection',
-    desc: 'Choose a convenient time and book a 60-minute video session with a representative.',
+    desc: 'Pick a time that works for your schedule, anywhere in the world, and reserve a 60-minute video session. A local representative will have your products ready and unpacked before the call starts.',
   },
   {
     icon: Eye,
     title: 'Watch Your Products Live',
-    desc: 'The representative physically opens and shows your products through the video call.',
+    desc: "Join the call and watch in real time as the representative opens boxes, unwraps items, and walks you through the shipment — just as if you were standing in the warehouse yourself.",
   },
   {
     icon: Search,
     title: 'Inspect & Decide',
-    desc: 'Ask questions, check quality, packaging, quantity, specifications and other details.',
+    desc: 'Direct the inspection as it happens: ask to zoom in, check stitching or seals, verify quantities, compare against spec sheets, and raise any concern the moment you spot it.',
   },
   {
     icon: CheckCircle2,
     title: 'Approve, Return or Replace',
-    desc: 'Identify products to accept, return, replace, or handle differently before moving forward.',
+    desc: 'Once you’ve seen everything, decide with confidence — accept the batch, flag items for return, or request a replacement, all backed by the video record from your session.',
   },
   {
     icon: Truck,
     title: 'Continue or Ship',
-    desc: 'Once satisfied, proceed with your bulk order, consolidation, shipping, or next sourcing step.',
+    desc: 'With approval given, we consolidate, repackage, or forward your goods exactly as instructed — whether that means holding stock, combining shipments, or sending straight to your next destination.',
   },
 ];
 
@@ -87,16 +86,9 @@ export default function HowItWorks() {
                     <h3 className="text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">
                       {step.title}
                     </h3>
-                    <p className="text-lg text-neutral-500 leading-relaxed max-w-md mb-4">
+                    <p className="text-lg text-neutral-500 leading-relaxed max-w-md">
                       {step.desc}
                     </p>
-                    <a
-                      href="#contact"
-                      className="inline-flex items-center gap-1.5 text-base font-semibold text-primary-600 hover:text-primary-700 transition-colors"
-                    >
-                      Learn More
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
                   </div>
 
                   <div className={`hidden lg:block ${isLeft ? 'lg:order-2' : 'lg:order-1'}`}>
