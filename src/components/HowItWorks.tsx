@@ -1,5 +1,3 @@
-import { useRef } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
 import { useReveal } from '@/hooks/useReveal';
 import {
   LayoutGrid,
@@ -9,6 +7,7 @@ import {
   Search,
   CheckCircle2,
   Truck,
+  ArrowRight,
 } from 'lucide-react';
 
 const steps = [
@@ -51,19 +50,9 @@ const steps = [
 
 export default function HowItWorks() {
   const { ref, isVisible } = useReveal({ threshold: 0, rootMargin: '0px 0px -10% 0px' });
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: timelineRef,
-    offset: ['start start', 'end end'],
-  });
-  const lineProgress = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 25,
-    restDelta: 0.001,
-  });
 
   return (
-    <section id="how-it-works" className="relative py-24 lg:py-32 bg-neutral-50 scroll-mt-20 lg:scroll-mt-24">
+    <section id="how-it-works" className="relative py-24 lg:py-32 bg-white scroll-mt-20 lg:scroll-mt-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-20">
           <span className="text-sm font-semibold text-primary-600 uppercase tracking-wider">
@@ -78,68 +67,56 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        <div
-          ref={(el) => {
-            ref.current = el;
-            timelineRef.current = el;
-          }}
-          className="relative max-w-5xl mx-auto"
-        >
-          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-1 rounded-full bg-neutral-200 lg:-translate-x-1/2" />
-          <motion.div
-            style={{ scaleY: lineProgress }}
-            className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-1 rounded-full origin-top bg-primary-600 lg:-translate-x-1/2"
-          />
+        <div ref={ref} className="relative max-w-5xl mx-auto">
+          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 border-l-2 border-dashed border-primary-200 lg:-translate-x-1/2" />
 
-          <div className="space-y-8 lg:space-y-0">
+          <div className="space-y-16 lg:space-y-28">
             {steps.map((step, i) => {
               const isLeft = i % 2 === 0;
               return (
                 <div
                   key={step.title}
-                  className={`reveal ${isVisible ? 'is-visible' : ''} reveal-delay-${(i % 4) + 1} relative lg:grid lg:grid-cols-2 lg:gap-12 lg:min-h-[50vh] lg:items-center ${isLeft ? '' : 'lg:flex-row-reverse'}`}
+                  className={`reveal ${isVisible ? 'is-visible' : ''} reveal-delay-${(i % 4) + 1} relative lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center`}
                   style={{ transitionDelay: `${i * 0.08}s` }}
                 >
-                  {isLeft ? (
-                    <>
-                      <div className="lg:pr-16 lg:text-right pl-20 lg:pl-0 pb-8 lg:pb-0">
-                        <div className="flex flex-col lg:items-end">
-                          <span className="text-base font-bold text-primary-500 mb-3">
-                            Step {String(i + 1).padStart(2, '0')}
-                          </span>
-                          <h3 className="text-2xl lg:text-4xl font-bold text-neutral-900 mb-4">
-                            {step.title}
-                          </h3>
-                          <p className="text-lg text-neutral-600 leading-relaxed max-w-md lg:ml-auto">
-                            {step.desc}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="hidden lg:block" />
-                    </>
-                  ) : (
-                    <>
-                      <div className="hidden lg:block" />
-                      <div className="lg:pl-16 pl-20 pb-8 lg:pb-0">
-                        <span className="text-base font-bold text-primary-500 mb-3 block">
-                          Step {String(i + 1).padStart(2, '0')}
-                        </span>
-                        <h3 className="text-2xl lg:text-4xl font-bold text-neutral-900 mb-4">
-                          {step.title}
-                        </h3>
-                        <p className="text-lg text-neutral-600 leading-relaxed max-w-md">
-                          {step.desc}
-                        </p>
-                      </div>
-                    </>
-                  )}
-
                   <div
-                    className={`absolute left-8 top-8 lg:left-1/2 lg:top-1/2 -translate-x-1/2 lg:-translate-y-1/2 w-20 h-20 lg:w-24 lg:h-24 rounded-2xl bg-white border-2 border-primary-200 flex items-center justify-center shadow-md z-10 ${i === steps.length - 1 ? 'border-success-300 bg-success-50' : ''}`}
+                    className={`pl-20 lg:pl-0 ${
+                      isLeft ? 'lg:order-1 lg:pr-16' : 'lg:order-2 lg:pl-16'
+                    }`}
                   >
-                    <step.icon
-                      className={`w-9 h-9 lg:w-11 lg:h-11 ${i === steps.length - 1 ? 'text-success-600' : 'text-primary-600'}`}
-                    />
+                    <h3 className="text-xl lg:text-2xl font-bold text-neutral-900 mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-neutral-500 leading-relaxed max-w-md mb-4">
+                      {step.desc}
+                    </p>
+                    <a
+                      href="#contact"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors"
+                    >
+                      Learn More
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+
+                  <div className={`hidden lg:block ${isLeft ? 'lg:order-2' : 'lg:order-1'}`}>
+                    <div
+                      className={`relative mx-auto w-full max-w-xs aspect-square rounded-[5px] flex items-center justify-center ${
+                        i % 2 === 0 ? 'bg-primary-50' : 'bg-accent-50'
+                      }`}
+                    >
+                      <step.icon
+                        className={`w-16 h-16 ${i % 2 === 0 ? 'text-primary-500' : 'text-accent-500'}`}
+                        strokeWidth={1.5}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="absolute left-8 top-0 lg:left-1/2 lg:top-1/2 -translate-x-1/2 lg:-translate-y-1/2 flex flex-col items-center z-10">
+                    <span className="font-display text-4xl lg:text-6xl font-bold text-neutral-100 select-none leading-none">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="mt-1 w-3 h-3 rounded-full bg-primary-500 ring-4 ring-primary-100" />
                   </div>
                 </div>
               );
