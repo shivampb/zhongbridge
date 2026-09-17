@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useReveal } from '@/hooks/useReveal';
+import { useStaggerReveal } from '@/hooks/useStaggerReveal';
 import {
   Video,
   User,
@@ -33,6 +34,7 @@ const overlayItems = [
 
 export default function InspectionDemo() {
   const { ref, isVisible } = useReveal();
+  const checklistRef = useStaggerReveal<HTMLDivElement>({ stagger: 0.06, y: 16 });
   const stackRef = useRef<HTMLDivElement>(null);
   const card1Ref = useRef<HTMLDivElement>(null);
   const card2Ref = useRef<HTMLDivElement>(null);
@@ -167,7 +169,7 @@ export default function InspectionDemo() {
           </div>
         </div>
 
-        <div className={`reveal ${isVisible ? 'is-visible' : ''} reveal-delay-2 grid lg:grid-cols-3 gap-4 mb-12`}>
+        <div ref={checklistRef} className="grid lg:grid-cols-3 gap-4 mb-12">
           {overlayItems.map((item) => (
             <div
               key={item.label}
