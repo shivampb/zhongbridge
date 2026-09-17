@@ -48,7 +48,7 @@ export default function Hero() {
             <span className="whitespace-nowrap">Your Business Presence</span>
             <br />
             <span className="whitespace-nowrap text-primary-950">
-              In China, Without The Flight.
+              In Zhongshan, Without The Flight.
             </span>
           </motion.h1>
 
