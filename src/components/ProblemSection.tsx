@@ -1,5 +1,6 @@
 import { Plane, Hotel, Clock, PackageSearch, Search, Undo2, Handshake, Languages, ArrowRight } from 'lucide-react';
 import { useReveal } from '@/hooks/useReveal';
+import { useStaggerReveal } from '@/hooks/useStaggerReveal';
 
 const painPoints = [
   { icon: Plane, title: 'Expensive Flights', desc: 'Round-trip airfare for every sourcing trip adds up fast.' },
@@ -17,11 +18,12 @@ const virtualSteps = ['Order', 'Receive in China', 'Book Inspection', 'Inspect L
 
 export default function ProblemSection() {
   const { ref, isVisible } = useReveal();
+  const gridRef = useStaggerReveal<HTMLDivElement>();
 
   return (
     <section className="relative py-24 lg:py-32 bg-neutral-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div ref={ref} className="max-w-3xl mx-auto text-center mb-16">
           <span className="text-sm font-semibold text-primary-600 uppercase tracking-wider">
             The Problem
           </span>
@@ -38,7 +40,7 @@ export default function ProblemSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-20">
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-20">
           {painPoints.map((point, i) => {
             const row = Math.floor(i / 4);
             const col = i % 4;
@@ -46,12 +48,11 @@ export default function ProblemSection() {
             return (
               <div
                 key={point.title}
-                className={`reveal ${isVisible ? 'is-visible' : ''} reveal-delay-${(i % 4) + 1} group p-6 py-8 rounded-xl border hover:shadow-lg hover:-translate-y-1 transition-colors transition-transform duration-150 ease-out ${
+                className={`group p-6 py-8 rounded-xl border hover:shadow-lg hover:-translate-y-1 transition-colors transition-transform duration-150 ease-out ${
                   isBlue
                     ? 'bg-primary-600 border-primary-600 hover:bg-white hover:border-neutral-200'
                     : 'bg-white border-neutral-200 hover:bg-primary-600 hover:border-primary-600'
                 }`}
-                ref={i === 0 ? ref : undefined}
               >
                 <div
                   className={`w-11 h-11 rounded-lg flex items-center justify-center mb-4 transition-colors duration-150 ${

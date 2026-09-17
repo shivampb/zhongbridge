@@ -1,4 +1,4 @@
-import { useReveal } from '@/hooks/useReveal';
+import { useStaggerReveal } from '@/hooks/useStaggerReveal';
 import { Check, ArrowRight, Building2, Clock, Star } from 'lucide-react';
 
 const plans = [
@@ -56,7 +56,7 @@ const plans = [
 ];
 
 export default function Pricing() {
-  const { ref, isVisible } = useReveal();
+  const ref = useStaggerReveal<HTMLDivElement>();
 
   return (
     <section id="pricing" className="relative py-24 lg:py-32 bg-neutral-50 scroll-mt-20 lg:scroll-mt-24">
@@ -79,15 +79,14 @@ export default function Pricing() {
           ref={ref}
           className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto"
         >
-          {plans.map((plan, i) => (
+          {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`reveal ${isVisible ? 'is-visible' : ''} reveal-delay-${(i % 4) + 1} relative p-6 rounded-2xl border transition-all flex flex-col ${
+              className={`relative p-6 rounded-2xl border transition-all flex flex-col ${
                 plan.featured
                   ? 'bg-primary-950 border-primary-900 shadow-2xl lg:scale-105'
                   : 'bg-white border-neutral-200 hover:border-primary-200 hover:shadow-lg'
               }`}
-              style={{ transitionDelay: `${i * 0.08}s` }}
             >
               {plan.featured && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-primary-600 text-white text-xs font-semibold shadow-md">
