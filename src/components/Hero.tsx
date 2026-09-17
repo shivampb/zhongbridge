@@ -35,7 +35,7 @@ export default function Hero() {
         <img
           src="https://res.cloudinary.com/cjzo6qye/image/upload/v1789630085/ChatGPT_Image_Sep_17_2026_12_54_37_PM.png"
           alt="Local representative inspecting products in Zhongshan, China"
-          className="absolute inset-0 w-full h-full object-cover object-right scale-110 origin-right"
+          className="absolute inset-0 w-full h-full object-cover object-left scale-110 origin-left"
         />
         <div className="relative z-10 h-full flex flex-col justify-center max-w-7xl mx-auto px-6 lg:px-8">
           <motion.h1
