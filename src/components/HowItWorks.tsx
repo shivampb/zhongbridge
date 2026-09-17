@@ -14,6 +14,8 @@ const highlight = 'bg-primary-100 text-primary-900 px-1 rounded-sm';
 const steps = [
   {
     icon: LayoutGrid,
+    image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Team reviewing virtual office plans around a desk',
     title: 'Choose Your Virtual Office',
     desc: (
       <>
@@ -25,6 +27,8 @@ const steps = [
   },
   {
     icon: Send,
+    image: 'https://images.pexels.com/photos/4498136/pexels-photo-4498136.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Sealing a shipping box with packing tape',
     title: 'Send Your Orders to Your China Office',
     desc: (
       <>
@@ -36,6 +40,8 @@ const steps = [
   },
   {
     icon: CalendarCheck,
+    image: 'https://images.pexels.com/photos/6937870/pexels-photo-6937870.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Joining a live video inspection call from a laptop',
     title: 'Book a Live Inspection',
     desc: (
       <>
@@ -47,6 +53,8 @@ const steps = [
   },
   {
     icon: Eye,
+    image: 'https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Warehouse aisle stocked with product shipments',
     title: 'Watch Your Products Live',
     desc: (
       <>
@@ -58,6 +66,8 @@ const steps = [
   },
   {
     icon: Search,
+    image: 'https://images.pexels.com/photos/6069553/pexels-photo-6069553.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Closely examining a product’s material and finish',
     title: 'Inspect & Decide',
     desc: (
       <>
@@ -69,6 +79,8 @@ const steps = [
   },
   {
     icon: CheckCircle2,
+    image: 'https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Signing off on an approval document',
     title: 'Approve, Return or Replace',
     desc: (
       <>
@@ -80,6 +92,8 @@ const steps = [
   },
   {
     icon: Truck,
+    image: 'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Loading approved shipments into a delivery van',
     title: 'Continue or Ship',
     desc: (
       <>
@@ -136,15 +150,20 @@ export default function HowItWorks() {
                   </div>
 
                   <div className={`hidden lg:block ${isLeft ? 'lg:order-2' : 'lg:order-1'}`}>
-                    <div
-                      className={`relative mx-auto w-full max-w-xs aspect-square rounded-[5px] flex items-center justify-center ${
-                        i % 2 === 0 ? 'bg-primary-50' : 'bg-accent-50'
-                      }`}
-                    >
-                      <step.icon
-                        className={`w-16 h-16 ${i % 2 === 0 ? 'text-primary-500' : 'text-accent-500'}`}
-                        strokeWidth={1.5}
+                    <div className="relative mx-auto w-full max-w-xs aspect-square rounded-[5px] overflow-hidden shadow-md">
+                      <img
+                        src={step.image}
+                        alt={step.alt}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        loading="lazy"
                       />
+                      <div
+                        className={`absolute bottom-4 left-4 flex items-center justify-center w-12 h-12 rounded-[5px] shadow-md ${
+                          i % 2 === 0 ? 'bg-primary-600' : 'bg-accent-500'
+                        }`}
+                      >
+                        <step.icon className="w-6 h-6 text-white" strokeWidth={1.75} />
+                      </div>
                     </div>
                   </div>
 
