@@ -84,18 +84,18 @@ export default function HowItWorks() {
                       isLeft ? 'lg:order-1 lg:pr-16' : 'lg:order-2 lg:pl-16'
                     }`}
                   >
-                    <h3 className="text-xl lg:text-2xl font-bold text-neutral-900 mb-3">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">
                       {step.title}
                     </h3>
-                    <p className="text-neutral-500 leading-relaxed max-w-md mb-4">
+                    <p className="text-lg text-neutral-500 leading-relaxed max-w-md mb-4">
                       {step.desc}
                     </p>
                     <a
                       href="#contact"
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors"
+                      className="inline-flex items-center gap-1.5 text-base font-semibold text-primary-600 hover:text-primary-700 transition-colors"
                     >
                       Learn More
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-4 h-4" />
                     </a>
                   </div>
 
