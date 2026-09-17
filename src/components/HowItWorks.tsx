@@ -9,41 +9,85 @@ import {
   Truck,
 } from 'lucide-react';
 
+const highlight = 'bg-primary-100 text-primary-900 px-1 rounded-sm';
+
 const steps = [
   {
     icon: LayoutGrid,
     title: 'Choose Your Virtual Office',
-    desc: "Pick the plan that matches how you source — from a single inspection to a full-time office presence. Every plan gives you a real Zhongshan address and a dedicated team ready to act as your eyes on the ground.",
+    desc: (
+      <>
+        Pick the plan that <mark className={highlight}>matches how you source</mark> — from a
+        single inspection to a full-time office presence. Every plan gives you a real Zhongshan
+        address and a dedicated team ready to act as your eyes on the ground.
+      </>
+    ),
   },
   {
     icon: Send,
     title: 'Send Your Orders to Your China Office',
-    desc: 'Have suppliers ship directly to your virtual office. We receive, log, and photograph every parcel the moment it arrives, so nothing sits unaccounted for and you always know what landed and when.',
+    desc: (
+      <>
+        Have suppliers ship directly to your virtual office. We{' '}
+        <mark className={highlight}>receive, log, and photograph every parcel</mark> the moment
+        it arrives, so nothing sits unaccounted for and you always know what landed and when.
+      </>
+    ),
   },
   {
     icon: CalendarCheck,
     title: 'Book a Live Inspection',
-    desc: 'Pick a time that works for your schedule, anywhere in the world, and reserve a 60-minute video session. A local representative will have your products ready and unpacked before the call starts.',
+    desc: (
+      <>
+        Pick a time that works for your schedule, anywhere in the world, and reserve a{' '}
+        <mark className={highlight}>60-minute video session</mark>. A local representative will
+        have your products ready and unpacked before the call starts.
+      </>
+    ),
   },
   {
     icon: Eye,
     title: 'Watch Your Products Live',
-    desc: "Join the call and watch in real time as the representative opens boxes, unwraps items, and walks you through the shipment — just as if you were standing in the warehouse yourself.",
+    desc: (
+      <>
+        Join the call and <mark className={highlight}>watch in real time</mark> as the
+        representative opens boxes, unwraps items, and walks you through the shipment — just as
+        if you were standing in the warehouse yourself.
+      </>
+    ),
   },
   {
     icon: Search,
     title: 'Inspect & Decide',
-    desc: 'Direct the inspection as it happens: ask to zoom in, check stitching or seals, verify quantities, compare against spec sheets, and raise any concern the moment you spot it.',
+    desc: (
+      <>
+        Direct the inspection as it happens: ask to zoom in, check stitching or seals, verify
+        quantities, compare against spec sheets, and{' '}
+        <mark className={highlight}>raise any concern the moment you spot it</mark>.
+      </>
+    ),
   },
   {
     icon: CheckCircle2,
     title: 'Approve, Return or Replace',
-    desc: 'Once you’ve seen everything, decide with confidence — accept the batch, flag items for return, or request a replacement, all backed by the video record from your session.',
+    desc: (
+      <>
+        Once you’ve seen everything, decide with confidence — accept the batch, flag items for
+        return, or request a replacement, all{' '}
+        <mark className={highlight}>backed by the video record</mark> from your session.
+      </>
+    ),
   },
   {
     icon: Truck,
     title: 'Continue or Ship',
-    desc: 'With approval given, we consolidate, repackage, or forward your goods exactly as instructed — whether that means holding stock, combining shipments, or sending straight to your next destination.',
+    desc: (
+      <>
+        With approval given, we consolidate, repackage, or forward your goods{' '}
+        <mark className={highlight}>exactly as instructed</mark> — whether that means holding
+        stock, combining shipments, or sending straight to your next destination.
+      </>
+    ),
   },
 ];
 
@@ -86,7 +130,7 @@ export default function HowItWorks() {
                     <h3 className="text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">
                       {step.title}
                     </h3>
-                    <p className="text-lg text-neutral-500 leading-relaxed max-w-md">
+                    <p className="text-lg text-neutral-700 leading-relaxed max-w-md">
                       {step.desc}
                     </p>
                   </div>
