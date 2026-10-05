@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowDown, FileCheck2, Video, ShieldCheck } from 'lucide-react';
+import { APP_URL } from '../config';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -74,7 +75,7 @@ export default function Hero() {
             className="mt-8"
           >
             <a
-              href="#pricing"
+              href={APP_URL}
               className="inline-flex items-center gap-3 whitespace-nowrap pl-7 pr-2 py-2 rounded-[5px] bg-white text-primary-800 font-medium text-base hover:bg-primary-50 transition-colors"
             >
               Start Your Transformation

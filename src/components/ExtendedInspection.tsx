@@ -1,5 +1,6 @@
 import { useReveal } from '@/hooks/useReveal';
 import { Clock, CalendarDays, Check, ArrowRight } from 'lucide-react';
+import { APP_URL } from '../config';
 
 const sixtyMinuteFeatures = [
   'Quick product checks',
@@ -62,7 +63,7 @@ export default function ExtendedInspection() {
               ))}
             </ul>
             <a
-              href="/#pricing"
+              href={APP_URL}
               className="mt-8 inline-flex items-center gap-2 text-primary-600 font-semibold text-sm hover:gap-3 transition-all"
             >
               Book a 60-Minute Session
@@ -102,7 +103,7 @@ export default function ExtendedInspection() {
                 ))}
               </ul>
               <a
-                href="/#pricing"
+                href={APP_URL}
                 className="mt-8 inline-flex items-center gap-2 text-primary-400 font-semibold text-sm hover:gap-3 transition-all"
               >
                 Explore Extended Plans

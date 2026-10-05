@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X, Building2 } from 'lucide-react';
+import { APP_URL } from '../config';
 
 const navLinks = [
   { label: 'How It Works', href: '/how-it-works' },
@@ -67,7 +68,7 @@ export default function Navbar() {
                 Talk to Us
               </a>
               <a
-                href="/#pricing"
+                href={APP_URL}
                 className="px-5 py-2 rounded-full bg-primary-600 text-white text-sm font-semibold hover:bg-primary-700 transition-colors shadow-sm hover:shadow-md"
               >
                 Get Started
@@ -139,7 +140,7 @@ export default function Navbar() {
                   </motion.a>
                 ))}
                 <motion.a
-                  href="/#contact"
+                  href={APP_URL}
                   onClick={() => setMenuOpen(false)}
                   initial={{ opacity: 0, x: 24 }}
                   animate={{ opacity: 1, x: 0 }}

@@ -1,5 +1,6 @@
 import { ArrowRight, MessageSquare } from 'lucide-react';
 import { useReveal } from '@/hooks/useReveal';
+import { APP_URL } from '../config';
 
 export default function FinalCTA() {
   const { ref, isVisible } = useReveal();
@@ -24,7 +25,7 @@ export default function FinalCTA() {
         </p>
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/#contact"
+            href={APP_URL}
             className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
             Get Your Virtual Office

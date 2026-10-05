@@ -19,6 +19,7 @@ import {
   Layers,
   Palette,
 } from 'lucide-react';
+import { APP_URL } from '../config';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -196,7 +197,7 @@ export default function InspectionDemo() {
             directly with someone physically handling your products."
           </p>
           <a
-            href="#pricing"
+            href={APP_URL}
             className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
             Book a 60-Minute Inspection

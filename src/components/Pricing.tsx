@@ -1,5 +1,6 @@
 import { useStaggerReveal } from '@/hooks/useStaggerReveal';
 import { Check, ArrowRight, Building2, Clock, Star } from 'lucide-react';
+import { APP_URL } from '../config';
 
 const plans = [
   {
@@ -16,7 +17,7 @@ const plans = [
       'Remote coordination',
     ],
     cta: 'Get Started',
-    ctaHref: '#contact',
+    ctaHref: APP_URL,
     featured: false,
   },
   {
@@ -33,7 +34,7 @@ const plans = [
       'Inspection summary',
     ],
     cta: 'Book Inspection',
-    ctaHref: '#contact',
+    ctaHref: APP_URL,
     featured: true,
   },
   {
